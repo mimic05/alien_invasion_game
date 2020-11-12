@@ -1,28 +1,33 @@
-import pygame as pg
+import pygame
+from settings import Settings
+from pygame.sprite import Sprite
 
-class Ship():
-    def __init__(self, ai_game):
-        self.screen = ai_game.screen
-        self.settings = ai_game.settings
-        self.screen_rect = ai_game.screen.get_rect()
+class Ship(Sprite):
+    def __init__(self, game):
+        super().__init__()
+        self.screen = game.win # accessing screen element from game and storing that in a variable
+        self.settings = game.settings
 
-        self.original_image = pg.image.load('image/ship.png')
-        self.image = pg.transform.scale(self.original_image, (40, 40))
-        self.rect = self.image.get_rect()
-        self.rect.midbottom = self.screen_rect.midbottom # position
-        self.x = float(self.rect.x)
-        # self.y = float(self.rect.y)
+        self.original_image = pygame.image.load('C:\CODE\pygame_projects\image\ship9.png') # loding image
+        self.image = pygame.transform.scale(self.original_image, (25, 30)) # resizing image
+
+        self.rect = self.image.get_rect() # making rectangle of image
+        self.screen_rect = self.screen.get_rect() # making rectangle of screen
+
+        self.rect.midbottom = self.screen_rect.midbottom # setting the position to draw the ship
+        self.ship_speed = self.settings.ship_speed
 
         self.moving_right = False
         self.moving_left = False
-        # self.moving_up = False
 
-    def update(self):
+    def update_ship_position(self):
         if self.moving_right and self.rect.right < self.screen_rect.right:
-            self.x += self.settings.ship_speed
+            self.rect.x += self.ship_speed
         if self.moving_left and self.rect.left > 0:
-            self.x -= self.settings.ship_speed
-        self.rect.x = self.x
+            self.rect.x -= self.ship_speed
 
-    def blitme(self):
+    def draw_ship(self):
         self.screen.blit(self.image, self.rect)
+
+    def center_ship(self):
+        self.rect.midbottom = self.rect.midbottom

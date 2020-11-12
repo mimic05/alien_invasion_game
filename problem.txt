@@ -1,0 +1,8 @@
+When I use self.image_rect = self.image.get_rect()
+    it throws error and says Alien has no rect obect
+
+But when I use self.rect = self.image.get_rect()
+    it works perfectly fine; why?
+
+I thought I can store self.image.get_rect() value in any variable
+and then acces that rect valus using; self.image_rect.x, self.image_rect.y etc.
