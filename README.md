@@ -29,14 +29,14 @@ To run the Alien Shooter game, you'll need Python and Pygame installed on your s
 
    ```python game.py```
 
-Controls:
+## Controls:
 
    Arrow Keys: Move the spaceship.
    Spacebar: Shoot.
 
-**Contributing**
+## Contributing
    Feel free to contribute to the project by submitting issues or pull requests. Make sure to follow the
    coding guidelines and test your changes before submitting.
 
-**Contact**
+## Contact
    For any questions or feedback, please reach out to mimicmannan50@gmail.com
