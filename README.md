@@ -21,9 +21,9 @@ To run the Alien Shooter game, you'll need Python and Pygame installed on your s
 
 2. **Install Dependencies:**
 
-Make sure you have Python installed. Then, install the required packages:
+   Make sure you have Python installed. Then, install the required packages:
 
-pip install pygame
+   '''pip install pygame'''
 
 3. **Run the Game:**
 
