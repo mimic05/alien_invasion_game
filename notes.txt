@@ -1,0 +1,39 @@
+Bullet section --->
+  In bullet.py file-->
+
+    First we import pygame and then we import Sprite
+    Then we inherit from Sprite class
+
+    We don't hava a image for bullet so we have to create a bullet from scretch
+    For that we need rect, and rect need weight, height, color attrubute
+    So we set weight, height and color in the init method of Bullet class
+
+    Then we prepare a rect that will be later drawn
+    We set the position of the bullet (self.rect.midtop) to where the ship is (game.ship.image_rect.midtio)
+
+
+    We create update method; that decreases the Y position of the rect, whenever this medthod is called
+
+    We create draw method; that draws previously prepaired rect whenever this method is
+
+  In game.py file-->
+
+    We create a sprite group in init medthod of Game class and store that group in self.bullets variable
+
+    In the main loop we apply update method from bullet class on self.bullets(which is a sprite group)-
+    -that updates the position of every bullet in that group
+
+    We check for space keydown event and evertytime space key gets pressed, _fire_bullet() helper method
+    _fire_bullet() creates a instance of bullet and add that instance self.bullets(sprite group)
+
+    Then in _update_screen helper method just before updating the screen we draw every bullet in-
+    -self.bullets(which is sprite group) group on the screen
+
+    While loop in order-->
+      1. set FPS
+      2. Check for events (quit event will be executed in this step immediately, right or left arrow press will-
+      -recorded and then gets executed in next step which update the ship position, SPACE press will triger the-
+      -_fire_bullet() helper event; which will create bullet instance in add that to group every time it is triggerd
+      3. Update the position of ship; to its corresponding event
+      4. Update the Y position of the bullets if there is any bullet in self.bullets(sprite group)
+      5. Update the screen; draws every bullet in self.bullets(which is sprite group) group
